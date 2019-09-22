@@ -1,7 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles';
-import {Typography, CardMedia, CardContent, CardActionArea, Card} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles'
+import {
+  Typography, CardMedia, CardContent, CardActionArea, Card,
+} from '@material-ui/core'
 
 
 const useStyles = makeStyles({
@@ -13,16 +15,16 @@ const useStyles = makeStyles({
     paddingTop: '1', // 16:9
   },
 
-});
+})
 
 export default function ImageCard(prop) {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          component={"img"}
+          component="img"
           className={classes.media}
           image={prop.image}
           title={prop.title}
@@ -37,5 +39,5 @@ export default function ImageCard(prop) {
         </CardContent>
       </CardActionArea>
     </Card>
-  );
+  )
 }

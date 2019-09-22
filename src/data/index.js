@@ -1,4 +1,15 @@
-export const suggestions = [
+export const osOption = [
+  {
+    value: 'ios',
+    label: 'ios',
+  },
+  {
+    value: 'android',
+    label: 'android',
+  },
+]
+
+export const pageOption = [
   { label: 'Afghanistan' },
   { label: 'Aland Islands' },
   { label: 'Albania' },
@@ -33,8 +44,7 @@ export const suggestions = [
   { label: 'Brazil' },
   { label: 'British Indian Ocean Territory' },
   { label: 'Brunei Darussalam' },
-].map(suggestion => ({
+].map((suggestion) => ({
   value: suggestion.label,
   label: suggestion.label,
-}));
-
+}))

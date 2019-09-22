@@ -1,10 +1,11 @@
 
+import React from 'react'
+import clsx from 'clsx'
 
-import React from 'react';
-import clsx from 'clsx';
-
-import CancelIcon from '@material-ui/icons/Cancel';
-import {Typography, TextField, Chip, Paper, MenuItem} from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel'
+import {
+  Typography, TextField, Chip, Paper, MenuItem,
+} from '@material-ui/core'
 
 function NoOptionsMessage(props) {
   return (
@@ -15,11 +16,11 @@ function NoOptionsMessage(props) {
     >
       {props.children}
     </Typography>
-  );
+  )
 }
 
 function inputComponent({ inputRef, ...props }) {
-  return <div ref={inputRef} {...props} />;
+  return <div ref={inputRef} {...props} />
 }
 
 function Control(props) {
@@ -28,7 +29,7 @@ function Control(props) {
     innerProps,
     innerRef,
     selectProps: { classes, TextFieldProps },
-  } = props;
+  } = props
 
   return (
     <TextField
@@ -44,7 +45,7 @@ function Control(props) {
       }}
       {...TextFieldProps}
     />
-  );
+  )
 }
 
 function Option(props) {
@@ -60,16 +61,16 @@ function Option(props) {
     >
       {props.children}
     </MenuItem>
-  );
+  )
 }
 
 function Placeholder(props) {
-  const { selectProps, innerProps = {}, children } = props;
+  const { selectProps, innerProps = {}, children } = props
   return (
     <Typography color="textSecondary" className={selectProps.classes.placeholder} {...innerProps}>
       {children}
     </Typography>
-  );
+  )
 }
 
 function SingleValue(props) {
@@ -77,11 +78,11 @@ function SingleValue(props) {
     <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
       {props.children}
     </Typography>
-  );
+  )
 }
 
 function ValueContainer(props) {
-  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>;
+  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>
 }
 
 function MultiValue(props) {
@@ -95,7 +96,7 @@ function MultiValue(props) {
       onDelete={props.removeProps.onClick}
       deleteIcon={<CancelIcon {...props.removeProps} />}
     />
-  );
+  )
 }
 
 function Menu(props) {
@@ -103,7 +104,7 @@ function Menu(props) {
     <Paper square className={props.selectProps.classes.paper} {...props.innerProps}>
       {props.children}
     </Paper>
-  );
+  )
 }
 
 const components = {
@@ -115,6 +116,6 @@ const components = {
   Placeholder,
   SingleValue,
   ValueContainer,
-};
+}
 
-export default components;
+export default components

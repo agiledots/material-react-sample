@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 
-import AppHeaderBar from './component/AppHeaderBar';
-import SearchContainer from './component/SearchContainer';
-import ResultContainer from './component/ResultContainer';
+import AppHeaderBar from './component/AppHeaderBar'
+import SearchContainer from './component/SearchContainer'
+import ResultContainer from './component/ResultContainer'
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     height: 250,
@@ -15,58 +15,57 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: '#fff',
     margin: 0,
   },
-}));
+}))
 
 
 export default function App() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   // all images
-  const [allImages, setAllImages] = React.useState(null);
-  React.useEffect(()=>{
-    console.log("allImages:", allImages);
-  }, [allImages]);
+  const [allImages, setAllImages] = React.useState(null)
+  React.useEffect(() => {
+    console.log('allImages:', allImages)
+  }, [allImages])
 
 
   // filtered images
-  const [filteredImages, setFiteredImages] = React.useState([1,2,3,4,5]);
-  React.useEffect(()=>{
-    console.log("filteredImages:", filteredImages);
-  }, [filteredImages]);
+  const [filteredImages, setFiteredImages] = React.useState([1, 2, 3, 4, 5])
+  React.useEffect(() => {
+    console.log('filteredImages:', filteredImages)
+  }, [filteredImages])
 
 
   // os
-  const [os, setOS] = React.useState(null);
-  React.useEffect(()=>{
-    console.log("os:", os);
-  }, [os]);
+  const [os, setOS] = React.useState(null)
+  // pages
+  const [pages, setPages] = React.useState(null)
 
+  React.useEffect(() => {
+    console.log('os:', os, 'pages:', pages)
+  }, [os, pages])
+
+
+  // handle
   const handleChangeOS = (value) => {
-    setOS(value);
+    setOS(value)
   }
 
-  // pages
-  const [pages, setPages] = React.useState(null);
-  React.useEffect(()=>{
-    console.log("pages:", pages);
-  },[pages]);
-
   const handleChangePages = (value) => {
-    setPages(value);
+    setPages(value)
   }
 
   return (
     <div className={classes.root}>
       <AppHeaderBar />
 
-      <SearchContainer 
+      <SearchContainer
         os={os}
         handleChangeOS={handleChangeOS}
         pages={pages}
         handleChangePages={handleChangePages}
       />
-      
+
       <ResultContainer data={filteredImages} />
     </div>
-  );
+  )
 }

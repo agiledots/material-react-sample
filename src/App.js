@@ -1,26 +1,72 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import { makeStyles } from '@material-ui/core/styles';
+
+import AppHeaderBar from './component/AppHeaderBar';
+import SearchContainer from './component/SearchContainer';
+import ResultContainer from './component/ResultContainer';
+
+export const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    height: 250,
+    minWidth: 290,
+    backgroundColor: '#fff',
+    margin: 0,
+  },
+}));
+
+
+export default function App() {
+  const classes = useStyles();
+
+  // all images
+  const [allImages, setAllImages] = React.useState(null);
+  React.useEffect(()=>{
+    console.log("allImages:", allImages);
+  }, [allImages]);
+
+
+  // filtered images
+  const [filteredImages, setFiteredImages] = React.useState([1,2,3,4,5]);
+  React.useEffect(()=>{
+    console.log("filteredImages:", filteredImages);
+  }, [filteredImages]);
+
+
+  // os
+  const [os, setOS] = React.useState(null);
+  React.useEffect(()=>{
+    console.log("os:", os);
+  }, [os]);
+
+  const handleChangeOS = (value) => {
+    setOS(value);
+  }
+
+  // pages
+  const [pages, setPages] = React.useState(null);
+  React.useEffect(()=>{
+    console.log("pages:", pages);
+  },[pages]);
+
+  const handleChangePages = (value) => {
+    setPages(value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <AppHeaderBar />
+
+      <SearchContainer 
+        os={os}
+        handleChangeOS={handleChangeOS}
+        pages={pages}
+        handleChangePages={handleChangePages}
+      />
+      
+      <ResultContainer data={filteredImages} />
     </div>
   );
 }
-
-export default App;
